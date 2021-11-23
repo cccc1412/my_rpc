@@ -122,9 +122,22 @@ CMakeFiles/main.dir/src/mutex.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/mutex.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/d/WorkSpace/project/my_rpc/src/mutex.cpp -o CMakeFiles/main.dir/src/mutex.cpp.s
 
+CMakeFiles/main.dir/src/servant.cpp.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/src/servant.cpp.o: ../src/servant.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/WorkSpace/project/my_rpc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/main.dir/src/servant.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/src/servant.cpp.o -c /mnt/d/WorkSpace/project/my_rpc/src/servant.cpp
+
+CMakeFiles/main.dir/src/servant.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/src/servant.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/d/WorkSpace/project/my_rpc/src/servant.cpp > CMakeFiles/main.dir/src/servant.cpp.i
+
+CMakeFiles/main.dir/src/servant.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/servant.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/d/WorkSpace/project/my_rpc/src/servant.cpp -o CMakeFiles/main.dir/src/servant.cpp.s
+
 CMakeFiles/main.dir/src/status.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/src/status.cpp.o: ../src/status.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/WorkSpace/project/my_rpc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/main.dir/src/status.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/WorkSpace/project/my_rpc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/main.dir/src/status.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/src/status.cpp.o -c /mnt/d/WorkSpace/project/my_rpc/src/status.cpp
 
 CMakeFiles/main.dir/src/status.cpp.i: cmake_force
@@ -135,6 +148,32 @@ CMakeFiles/main.dir/src/status.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/status.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/d/WorkSpace/project/my_rpc/src/status.cpp -o CMakeFiles/main.dir/src/status.cpp.s
 
+CMakeFiles/main.dir/src/thread.cpp.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/src/thread.cpp.o: ../src/thread.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/WorkSpace/project/my_rpc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/main.dir/src/thread.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/src/thread.cpp.o -c /mnt/d/WorkSpace/project/my_rpc/src/thread.cpp
+
+CMakeFiles/main.dir/src/thread.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/src/thread.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/d/WorkSpace/project/my_rpc/src/thread.cpp > CMakeFiles/main.dir/src/thread.cpp.i
+
+CMakeFiles/main.dir/src/thread.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/thread.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/d/WorkSpace/project/my_rpc/src/thread.cpp -o CMakeFiles/main.dir/src/thread.cpp.s
+
+CMakeFiles/main.dir/src/thread_queue.cpp.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/src/thread_queue.cpp.o: ../src/thread_queue.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/WorkSpace/project/my_rpc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/main.dir/src/thread_queue.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/src/thread_queue.cpp.o -c /mnt/d/WorkSpace/project/my_rpc/src/thread_queue.cpp
+
+CMakeFiles/main.dir/src/thread_queue.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/src/thread_queue.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/d/WorkSpace/project/my_rpc/src/thread_queue.cpp > CMakeFiles/main.dir/src/thread_queue.cpp.i
+
+CMakeFiles/main.dir/src/thread_queue.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/thread_queue.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/d/WorkSpace/project/my_rpc/src/thread_queue.cpp -o CMakeFiles/main.dir/src/thread_queue.cpp.s
+
 # Object files for target main
 main_OBJECTS = \
 "CMakeFiles/main.dir/main.cpp.o" \
@@ -142,7 +181,10 @@ main_OBJECTS = \
 "CMakeFiles/main.dir/src/epoller.cpp.o" \
 "CMakeFiles/main.dir/src/epoller_server.cpp.o" \
 "CMakeFiles/main.dir/src/mutex.cpp.o" \
-"CMakeFiles/main.dir/src/status.cpp.o"
+"CMakeFiles/main.dir/src/servant.cpp.o" \
+"CMakeFiles/main.dir/src/status.cpp.o" \
+"CMakeFiles/main.dir/src/thread.cpp.o" \
+"CMakeFiles/main.dir/src/thread_queue.cpp.o"
 
 # External object files for target main
 main_EXTERNAL_OBJECTS =
@@ -152,10 +194,13 @@ main: CMakeFiles/main.dir/src/condition_variable.cpp.o
 main: CMakeFiles/main.dir/src/epoller.cpp.o
 main: CMakeFiles/main.dir/src/epoller_server.cpp.o
 main: CMakeFiles/main.dir/src/mutex.cpp.o
+main: CMakeFiles/main.dir/src/servant.cpp.o
 main: CMakeFiles/main.dir/src/status.cpp.o
+main: CMakeFiles/main.dir/src/thread.cpp.o
+main: CMakeFiles/main.dir/src/thread_queue.cpp.o
 main: CMakeFiles/main.dir/build.make
 main: CMakeFiles/main.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/d/WorkSpace/project/my_rpc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/d/WorkSpace/project/my_rpc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable main"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/main.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

@@ -13,11 +13,11 @@ public:
     Status Lock();
     Status Unlock();
 
-private:
+protected:
     Mutex(const Mutex&);
     Mutex& operator=(const Mutex&);
 
-private:
+protected:
     pthread_mutex_t mutex_;
 };
 

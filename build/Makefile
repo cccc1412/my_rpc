@@ -258,6 +258,33 @@ src/mutex.cpp.s:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/mutex.cpp.s
 .PHONY : src/mutex.cpp.s
 
+src/servant.o: src/servant.cpp.o
+
+.PHONY : src/servant.o
+
+# target to build an object file
+src/servant.cpp.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/servant.cpp.o
+.PHONY : src/servant.cpp.o
+
+src/servant.i: src/servant.cpp.i
+
+.PHONY : src/servant.i
+
+# target to preprocess a source file
+src/servant.cpp.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/servant.cpp.i
+.PHONY : src/servant.cpp.i
+
+src/servant.s: src/servant.cpp.s
+
+.PHONY : src/servant.s
+
+# target to generate assembly for a file
+src/servant.cpp.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/servant.cpp.s
+.PHONY : src/servant.cpp.s
+
 src/status.o: src/status.cpp.o
 
 .PHONY : src/status.o
@@ -285,6 +312,60 @@ src/status.cpp.s:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/status.cpp.s
 .PHONY : src/status.cpp.s
 
+src/thread.o: src/thread.cpp.o
+
+.PHONY : src/thread.o
+
+# target to build an object file
+src/thread.cpp.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/thread.cpp.o
+.PHONY : src/thread.cpp.o
+
+src/thread.i: src/thread.cpp.i
+
+.PHONY : src/thread.i
+
+# target to preprocess a source file
+src/thread.cpp.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/thread.cpp.i
+.PHONY : src/thread.cpp.i
+
+src/thread.s: src/thread.cpp.s
+
+.PHONY : src/thread.s
+
+# target to generate assembly for a file
+src/thread.cpp.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/thread.cpp.s
+.PHONY : src/thread.cpp.s
+
+src/thread_queue.o: src/thread_queue.cpp.o
+
+.PHONY : src/thread_queue.o
+
+# target to build an object file
+src/thread_queue.cpp.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/thread_queue.cpp.o
+.PHONY : src/thread_queue.cpp.o
+
+src/thread_queue.i: src/thread_queue.cpp.i
+
+.PHONY : src/thread_queue.i
+
+# target to preprocess a source file
+src/thread_queue.cpp.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/thread_queue.cpp.i
+.PHONY : src/thread_queue.cpp.i
+
+src/thread_queue.s: src/thread_queue.cpp.s
+
+.PHONY : src/thread_queue.s
+
+# target to generate assembly for a file
+src/thread_queue.cpp.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/thread_queue.cpp.s
+.PHONY : src/thread_queue.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -309,9 +390,18 @@ help:
 	@echo "... src/mutex.o"
 	@echo "... src/mutex.i"
 	@echo "... src/mutex.s"
+	@echo "... src/servant.o"
+	@echo "... src/servant.i"
+	@echo "... src/servant.s"
 	@echo "... src/status.o"
 	@echo "... src/status.i"
 	@echo "... src/status.s"
+	@echo "... src/thread.o"
+	@echo "... src/thread.i"
+	@echo "... src/thread.s"
+	@echo "... src/thread_queue.o"
+	@echo "... src/thread_queue.i"
+	@echo "... src/thread_queue.s"
 .PHONY : help
 
 

@@ -4,7 +4,10 @@ file(REMOVE_RECURSE
   "CMakeFiles/main.dir/src/epoller.cpp.o"
   "CMakeFiles/main.dir/src/epoller_server.cpp.o"
   "CMakeFiles/main.dir/src/mutex.cpp.o"
+  "CMakeFiles/main.dir/src/servant.cpp.o"
   "CMakeFiles/main.dir/src/status.cpp.o"
+  "CMakeFiles/main.dir/src/thread.cpp.o"
+  "CMakeFiles/main.dir/src/thread_queue.cpp.o"
   "main"
   "main.pdb"
 )
