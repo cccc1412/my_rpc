@@ -1,7 +1,7 @@
 #include "thread_queue.h"
 
 // template<typename T, typename D>
-// bool ThreadQueue<T, D>::pop_front(T& t) {
+// bool ThreadQueue<T, D>::pop_front(T& t,size_t millsecond) {
 //     t = queue_.front();
 //     queue_.pop_front();
 //     size_--;

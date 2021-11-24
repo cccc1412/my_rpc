@@ -16,8 +16,8 @@ EpollerServer::~EpollerServer() {
     delete net_threads_;
 }
 
-void EpollerServer::Send() {
-    net_threads_->send();
+void EpollerServer::Send(unsigned int uid, const string &s, const string &ip, uint16_t port) {
+    net_threads_->send(uid, s, ip, port);
 }
 
 
@@ -90,6 +90,7 @@ void NetThread::run() {
         int ev_num = epoller_.wait(2000);
         for(int i = 0; i < ev_num; i++) {
             epoll_event e = epoller_.get(i);
+            //std::cout<<e.data.fd<<std::endl;
             if(e.data.fd == sock_fd_) {//新的连接
                 int client_fd = accept(sock_fd_);
                 if(client_fd <= 0) continue;
@@ -112,13 +113,20 @@ void NetThread::createEpoll() {//创建epoll，对三个文件描述符添加事
     epoller_.add(notify_sock_fd_, NULL, EPOLLIN);
 }
 
-void NetThread::send() {
+void NetThread::send(uint32_t uid, const string &s, const string &ip, uint16_t port) {
     SendData* send_data = new SendData();
+    send_data->uid = uid;
+    send_data->cmd = 's';
+    send_data->buffer = s;
+    send_data->ip = ip;
+    send_data->port = port;
+    send_buffer.push_back(send_data);
     epoller_.mod(notify_sock_fd_, NULL, EPOLLOUT);
 }
 
 void NetThread::InsertRecvQueue(RecvData *recv_data) {
     recv_buffer.push_back(recv_data);
+    //monitor.notify();
 }
 
 void NetThread::ProcessPipe() {
@@ -127,8 +135,8 @@ void NetThread::ProcessPipe() {
     for(auto it = send_data.begin(); it != send_data.end(); it++) {
         if('s' == (*it)->cmd) {
             uint32_t uid = (*it)->uid;
-            int fd = listen_connect_fd[uid];
-            int bytes = ::send(fd, (*it)->buffer.c_str(), (*it)->buffer.size(), 0);
+            //int fd = listen_connect_fd[uid];
+            int bytes = ::send(uid, (*it)->buffer.c_str(), (*it)->buffer.size(), 0);
             cout<<"send bytes :"<<bytes<<endl;
         }
     }
@@ -140,8 +148,10 @@ void NetThread::ProcessNet(epoll_event &ev) {
     int ret = recv(client_fd, buffer, 1024, 0);
     if(ret < 0) {
         cout<<"recev error! errno is: "<<errno<<endl;
+        return;
     }else if(ret == 0) {
         cout<<"client close connect!"<<endl;
+        return;
     }else {
         cout<<"receive "<<ret<<" bytes: "<<buffer<<endl;
     } 
@@ -152,6 +162,12 @@ void NetThread::ProcessNet(epoll_event &ev) {
     //send();
 }
 
+bool NetThread::WaitForRecvQueue(RecvData* &recv, uint32_t wait_time) {
+    bool ret = false;
+    ret = recv_buffer.pop_front(recv, wait_time);
+    return ret;
+}
+
 Handle::Handle() {
 
 }
@@ -160,19 +176,37 @@ Handle::~Handle() {
 
 }
 
-void Handle::SendResponse() {
-    p_epoll_server_->Send();
+void Handle::SendResponse(uint32_t uid, const string &s, const string &ip, int port) {
+    p_epoll_server_->Send(uid, s, ip, port);
 }
 
 void Handle::SetEpollServer(EpollerServer *p_epoll_server) {
     p_epoll_server_ = p_epoll_server;
 }
 
+NetThread* EpollerServer::GetNetThread() {
+    return net_threads_;
+}
 void Handle::Run() {
     initalize();
     HandleImp();
 }
 
 void Handle::HandleImp() {
+    cout<<"Handle::handleImp"<<endl;
+    RecvData* recv = NULL;
+    while(true) {
+        NetThread* netThread = p_epoll_server_->GetNetThread();
+        //netThread->monitor.timedWait(100);
+        while(WaitForRecvQueue(recv, 0)) {
+            cout<<"handleImp recv uid  is "<<recv->fd<<endl;
+            //compute
+            p_epoll_server_->Send(recv->fd,recv->buffer, "0", 0);
+        }
+    }
+}
 
+bool Handle::WaitForRecvQueue(RecvData* &recv, uint32_t wait_time) {
+    NetThread* net_thread = p_epoll_server_->GetNetThread();
+    return net_thread->WaitForRecvQueue(recv, wait_time);
 }

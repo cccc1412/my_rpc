@@ -7,7 +7,7 @@ template<typename T, typename D = std::deque<T> >
 class ThreadQueue {
 public:
     typedef D queue_type;
-    bool pop_front(T& t);
+    bool pop_front(T& t,size_t millsecond);
     void push_back(T& t);
     void push_front(T& t);
     void swap(queue_type& q);
@@ -22,7 +22,11 @@ protected:
 };
 
 template<typename T, typename D>
-bool ThreadQueue<T, D>::pop_front(T& t) {
+bool ThreadQueue<T, D>::pop_front(T& t, size_t millsecond) {
+    if(queue_.empty()) {
+        return false;
+    }
+
     t = queue_.front();
     queue_.pop_front();
     size_--;

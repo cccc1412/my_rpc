@@ -32,7 +32,7 @@ int main(int argc, char *argv[])
         exit(1);
     }
     	
-    server_addr.sin_port = htons(9996);
+    server_addr.sin_port = htons(9877);
     socklen_t server_addr_length = sizeof(server_addr);
     //向服务器发起连接,连接成功后client_socket代表了客户机和服务器的一个socket连接
     if(connect(sockfd,(struct sockaddr*)&server_addr, server_addr_length) < 0)

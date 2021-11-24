@@ -6,9 +6,11 @@
 #include <netinet/in.h>
 #include <map>
 #include <vector>
+#include <list>
 
 #include "epoller.h"
 #include "thread_queue.h"
+#include "thread.h"
 
 using namespace std;
 
@@ -52,7 +54,7 @@ public:
     void parseAddr(const string &addr_string, in_addr &addr_struct);
     void createEpoll();
     int accept(int fd);
-    void send();
+    void send(uint32_t uid, const string &s, const string &ip, uint16_t port);
     void ProcessPipe();
     void ProcessNet(epoll_event &ev);
 
@@ -61,19 +63,21 @@ public:
     ThreadQueue<RecvData*, deque<RecvData*> > recv_buffer;
     ThreadQueue<SendData*, deque<SendData*> > send_buffer;
 
+    bool WaitForRecvQueue(RecvData* &recv, uint32_t wait_time);
 private:
     Epoller epoller_;
     int shutdown_sock_fd_;
     int notify_sock_fd_;
     int sock_fd_;
 
-    map<int, int> listen_connect_fd;
+    map<int, int> listen_connect_fd; //uid->fd
+    list<uint32_t> free_;//空闲的uid
     
 };
 
 
 
-class Handle {
+class Handle:public Thread{
 public:
     Handle();
     virtual ~Handle();
@@ -83,15 +87,16 @@ public:
     virtual void Run();
 
 public:
-    void SendResponse();
+    void SendResponse(uint32_t uid, const string &s, const string &ip, int port);
     void close();
     virtual void initalize() {};
-    bool WaitForRevQueue();
+    bool WaitForRecvQueue(RecvData* &recv, uint32_t wait_time);
 
 protected:
     EpollerServer* p_epoll_server_;
     uint32_t wait_time_;
-    
+    vector<Handle> handles_;
+
 protected:
     virtual void HandleImp();
 };
@@ -104,8 +109,8 @@ public:
 public:
 
     NetThread* GetNetThread();
-    void Send();
-
+    void Send(unsigned int uid, const string &s, const string &ip, uint16_t port);
+    void SetNetThread(NetThread* net_thread) {net_threads_ = net_thread;};
 private:
     NetThread* net_threads_;
 };

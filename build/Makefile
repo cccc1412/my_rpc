@@ -312,6 +312,33 @@ src/status.cpp.s:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/status.cpp.s
 .PHONY : src/status.cpp.s
 
+src/sum_impliment.o: src/sum_impliment.cpp.o
+
+.PHONY : src/sum_impliment.o
+
+# target to build an object file
+src/sum_impliment.cpp.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/sum_impliment.cpp.o
+.PHONY : src/sum_impliment.cpp.o
+
+src/sum_impliment.i: src/sum_impliment.cpp.i
+
+.PHONY : src/sum_impliment.i
+
+# target to preprocess a source file
+src/sum_impliment.cpp.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/sum_impliment.cpp.i
+.PHONY : src/sum_impliment.cpp.i
+
+src/sum_impliment.s: src/sum_impliment.cpp.s
+
+.PHONY : src/sum_impliment.s
+
+# target to generate assembly for a file
+src/sum_impliment.cpp.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/sum_impliment.cpp.s
+.PHONY : src/sum_impliment.cpp.s
+
 src/thread.o: src/thread.cpp.o
 
 .PHONY : src/thread.o
@@ -396,6 +423,9 @@ help:
 	@echo "... src/status.o"
 	@echo "... src/status.i"
 	@echo "... src/status.s"
+	@echo "... src/sum_impliment.o"
+	@echo "... src/sum_impliment.i"
+	@echo "... src/sum_impliment.s"
 	@echo "... src/thread.o"
 	@echo "... src/thread.i"
 	@echo "... src/thread.s"

@@ -11,6 +11,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/mnt/d/WorkSpace/project/my_rpc/src/mutex.cpp" "/mnt/d/WorkSpace/project/my_rpc/build/CMakeFiles/main.dir/src/mutex.cpp.o"
   "/mnt/d/WorkSpace/project/my_rpc/src/servant.cpp" "/mnt/d/WorkSpace/project/my_rpc/build/CMakeFiles/main.dir/src/servant.cpp.o"
   "/mnt/d/WorkSpace/project/my_rpc/src/status.cpp" "/mnt/d/WorkSpace/project/my_rpc/build/CMakeFiles/main.dir/src/status.cpp.o"
+  "/mnt/d/WorkSpace/project/my_rpc/src/sum_impliment.cpp" "/mnt/d/WorkSpace/project/my_rpc/build/CMakeFiles/main.dir/src/sum_impliment.cpp.o"
   "/mnt/d/WorkSpace/project/my_rpc/src/thread.cpp" "/mnt/d/WorkSpace/project/my_rpc/build/CMakeFiles/main.dir/src/thread.cpp.o"
   "/mnt/d/WorkSpace/project/my_rpc/src/thread_queue.cpp" "/mnt/d/WorkSpace/project/my_rpc/build/CMakeFiles/main.dir/src/thread_queue.cpp.o"
   )

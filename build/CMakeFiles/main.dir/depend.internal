@@ -4,6 +4,8 @@
 CMakeFiles/main.dir/main.cpp.o
  ../include/epoller.h
  ../include/epoller_server.h
+ ../include/status.h
+ ../include/thread.h
  ../include/thread_queue.h
  /mnt/d/WorkSpace/project/my_rpc/main.cpp
 CMakeFiles/main.dir/src/condition_variable.cpp.o
@@ -17,6 +19,8 @@ CMakeFiles/main.dir/src/epoller.cpp.o
 CMakeFiles/main.dir/src/epoller_server.cpp.o
  ../include/epoller.h
  ../include/epoller_server.h
+ ../include/status.h
+ ../include/thread.h
  ../include/thread_queue.h
  /mnt/d/WorkSpace/project/my_rpc/src/epoller_server.cpp
 CMakeFiles/main.dir/src/mutex.cpp.o
@@ -27,11 +31,23 @@ CMakeFiles/main.dir/src/servant.cpp.o
  ../include/epoller.h
  ../include/epoller_server.h
  ../include/servant.h
+ ../include/status.h
+ ../include/thread.h
  ../include/thread_queue.h
  /mnt/d/WorkSpace/project/my_rpc/src/servant.cpp
 CMakeFiles/main.dir/src/status.cpp.o
  ../include/status.h
  /mnt/d/WorkSpace/project/my_rpc/src/status.cpp
+CMakeFiles/main.dir/src/sum_impliment.cpp.o
+ ../include/encoder.h
+ ../include/epoller.h
+ ../include/epoller_server.h
+ ../include/servant.h
+ ../include/status.h
+ ../include/sum_impliment.h
+ ../include/thread.h
+ ../include/thread_queue.h
+ /mnt/d/WorkSpace/project/my_rpc/src/sum_impliment.cpp
 CMakeFiles/main.dir/src/thread.cpp.o
  ../include/status.h
  ../include/thread.h

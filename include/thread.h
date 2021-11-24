@@ -9,17 +9,18 @@ public:
     Thread();
     virtual ~Thread();
 
-    virtual Status Run(void *p_context = 0);
+    virtual Status Start();
     virtual Status WaitForDeath();
     
 private:
-    static void* StartFunctionOfThread(void *p_context);
+    static void* StartFunctionOfThread(Thread *thread_ptr);
 
 private:
-    void *p_context_;
     pthread_t thread_id_;
     bool running_;
 
+protected:
+    virtual void Run() = 0;
 };
 
 #endif //THREAD_H_
