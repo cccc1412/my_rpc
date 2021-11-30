@@ -2,6 +2,9 @@
 #define THREAD_QUEUE_H_
 
 #include <deque>
+#include <mutex>
+#include <condition_variable>
+//#include "monitor.h"
 
 template<typename T, typename D = std::deque<T> >
 class ThreadQueue {
@@ -19,12 +22,18 @@ public:
 protected:
     queue_type queue_;
     size_t size_;
+
+ private:
+  std::mutex mutex_;
+  std::condition_variable cond_;
 };
 
 template<typename T, typename D>
 bool ThreadQueue<T, D>::pop_front(T& t, size_t millsecond) {
+    std::unique_lock<std::mutex> lock(mutex_);
     if(queue_.empty()) {
-        return false;
+        cond_.wait(lock);
+        //return false;
     }
 
     t = queue_.front();
@@ -35,18 +44,23 @@ bool ThreadQueue<T, D>::pop_front(T& t, size_t millsecond) {
 
 template<typename T, typename D>
 void ThreadQueue<T, D>::push_back(T& t) {
+    std::unique_lock<std::mutex> lock(mutex_);
     queue_.push_back(t);
     size_++;
+    cond_.notify_one();
 }
 
 template<typename T, typename D>
 void ThreadQueue<T, D>::push_front(T& t) {
+    std::unique_lock<std::mutex> lock(mutex_);
     queue_.push_front();
     size_++;
+    cond_.notify_one();
 }
 
 template<typename T, typename D>
 void ThreadQueue<T, D>::clear() {
+    std::unique_lock<std::mutex> lock(mutex_);
     queue_.clear();
     size_ = 0;
 }
@@ -58,16 +72,22 @@ bool ThreadQueue<T, D>::empty() {
 
 template<typename T, typename D>
 auto ThreadQueue<T, D>::begin() {
+    std::unique_lock<std::mutex> lock(mutex_);
     return queue_.begin();
 }
 
 template<typename T, typename D>
 auto ThreadQueue<T, D>::end() {
+    std::unique_lock<std::mutex> lock(mutex_);
     return queue_.end();
 }
 
 template<typename T, typename D>
 void ThreadQueue<T, D>::swap(D &q) {
+    std::unique_lock<std::mutex> lock(mutex_);
+    // if(queue_.empty()) {
+    //     cond_.wait(lock);
+    // }
     q.swap(queue_);//交换两个队列的 内容
 }
 

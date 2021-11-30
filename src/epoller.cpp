@@ -16,8 +16,8 @@ void Epoller::ctrl(int fd, long long data, uint32_t events, int op) {
     }else {
         ev.events = events;
     }
-    ev.data.fd = fd;
-    epoll_ctl(epoll_fd_, op, fd, &ev);//向epoll添加对fd的事件监听
+    //ev.data.fd = fd;
+    epoll_ctl(epoll_fd_, op, fd, &ev);
 }
 
 void Epoller::add(int fd, long long data, uint32_t event) {

@@ -4,8 +4,8 @@
 #define HEADERFLOAT32 0
 #define HEADERSTRING 1
 class Encoder {
-public:
-    void encode(float val, char* buffer) {
+ public:
+  void encode(float val, char* buffer) {
 
     }
 };

@@ -1,7 +1,10 @@
 #include <iostream>
+#include <memory>
 #include "epoller.h"
 #include "epoller_server.h"
+
 int main() {
+    int handle_num = 3;
     EpollerServer *epoll_server = new EpollerServer();    
     NetThread* net_thread = new NetThread();
     epoll_server->SetNetThread(net_thread);
@@ -9,10 +12,23 @@ int main() {
     int port = 9996;
     net_thread->bind(ip,port);
     net_thread->createEpoll();
-    Handle handle;
-    handle.SetEpollServer(epoll_server);
-    handle.Start();
+    vector<Handle*> handles;
+    for(int i = 0; i< handle_num; i++) {
+        Handle *handle = new Handle();
+        handle->SetEpollServer(epoll_server);
+        handle->Start();
+        handles.push_back(handle);
+    }
+
+    // for(int i = 0; i< handle_num; i++) {//为什么不对？
+    //     Handle handle;
+    //     handle.SetEpollServer(epoll_server);
+    //     handle.Start();
+    //     handles.push_back(&handle);
+    // }
+    // for(auto& handle:handles) {
+    //     handle->Start();
+    // }
     net_thread->run();
-    //delete net_thread;
     return 0;
 }

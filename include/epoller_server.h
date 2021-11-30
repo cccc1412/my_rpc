@@ -14,6 +14,12 @@
 
 using namespace std;
 
+#define ET_LISTEN 1
+#define ET_NOTIFY 2
+#define ET_NET 3
+
+#define H64(x) (((uint64_t)x) << 32)
+
 struct RecvData {
     uint32_t uid;
     string buffer;
@@ -100,6 +106,7 @@ protected:
 protected:
     virtual void HandleImp();
 };
+
 
 class EpollerServer {
 public:
