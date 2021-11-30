@@ -150,6 +150,60 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+src/SumImp.o: src/SumImp.cpp.o
+
+.PHONY : src/SumImp.o
+
+# target to build an object file
+src/SumImp.cpp.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/SumImp.cpp.o
+.PHONY : src/SumImp.cpp.o
+
+src/SumImp.i: src/SumImp.cpp.i
+
+.PHONY : src/SumImp.i
+
+# target to preprocess a source file
+src/SumImp.cpp.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/SumImp.cpp.i
+.PHONY : src/SumImp.cpp.i
+
+src/SumImp.s: src/SumImp.cpp.s
+
+.PHONY : src/SumImp.s
+
+# target to generate assembly for a file
+src/SumImp.cpp.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/SumImp.cpp.s
+.PHONY : src/SumImp.cpp.s
+
+src/UppercaseImp.o: src/UppercaseImp.cpp.o
+
+.PHONY : src/UppercaseImp.o
+
+# target to build an object file
+src/UppercaseImp.cpp.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/UppercaseImp.cpp.o
+.PHONY : src/UppercaseImp.cpp.o
+
+src/UppercaseImp.i: src/UppercaseImp.cpp.i
+
+.PHONY : src/UppercaseImp.i
+
+# target to preprocess a source file
+src/UppercaseImp.cpp.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/UppercaseImp.cpp.i
+.PHONY : src/UppercaseImp.cpp.i
+
+src/UppercaseImp.s: src/UppercaseImp.cpp.s
+
+.PHONY : src/UppercaseImp.s
+
+# target to generate assembly for a file
+src/UppercaseImp.cpp.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/UppercaseImp.cpp.s
+.PHONY : src/UppercaseImp.cpp.s
+
 src/condition_variable.o: src/condition_variable.cpp.o
 
 .PHONY : src/condition_variable.o
@@ -257,33 +311,6 @@ src/mutex.s: src/mutex.cpp.s
 src/mutex.cpp.s:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/mutex.cpp.s
 .PHONY : src/mutex.cpp.s
-
-src/servant.o: src/servant.cpp.o
-
-.PHONY : src/servant.o
-
-# target to build an object file
-src/servant.cpp.o:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/servant.cpp.o
-.PHONY : src/servant.cpp.o
-
-src/servant.i: src/servant.cpp.i
-
-.PHONY : src/servant.i
-
-# target to preprocess a source file
-src/servant.cpp.i:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/servant.cpp.i
-.PHONY : src/servant.cpp.i
-
-src/servant.s: src/servant.cpp.s
-
-.PHONY : src/servant.s
-
-# target to generate assembly for a file
-src/servant.cpp.s:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/servant.cpp.s
-.PHONY : src/servant.cpp.s
 
 src/status.o: src/status.cpp.o
 
@@ -405,6 +432,12 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... src/SumImp.o"
+	@echo "... src/SumImp.i"
+	@echo "... src/SumImp.s"
+	@echo "... src/UppercaseImp.o"
+	@echo "... src/UppercaseImp.i"
+	@echo "... src/UppercaseImp.s"
 	@echo "... src/condition_variable.o"
 	@echo "... src/condition_variable.i"
 	@echo "... src/condition_variable.s"
@@ -417,9 +450,6 @@ help:
 	@echo "... src/mutex.o"
 	@echo "... src/mutex.i"
 	@echo "... src/mutex.s"
-	@echo "... src/servant.o"
-	@echo "... src/servant.i"
-	@echo "... src/servant.s"
 	@echo "... src/status.o"
 	@echo "... src/status.i"
 	@echo "... src/status.s"
