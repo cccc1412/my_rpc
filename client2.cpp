@@ -4,9 +4,9 @@
 #include <string.h>
 #include <sys/socket.h>
 #include <sys/types.h>
-#include <time.h>
 #include <unistd.h>
 
+#include <algorithm>
 #include <iostream>
 #include <string>
 
@@ -14,8 +14,23 @@
 #include "Type.h"
 
 using namespace std;
+char dic[26];
+void initdic() {
+  for (int i = 0; i < 26; i++) {
+    dic[i] = char(97 + i);
+    // printf("%c\n",dic[i]);
+  }
+}
+
+void randString(String &s) {
+  int n = rand() % 50 + 1;
+  for (int i = 0; i < n; i++) {
+    s.push_back(dic[rand() % 26]);
+  }
+}
 
 int main(int argc, char *argv[]) {
+  initdic();
   int sockfd = socket(AF_INET, SOCK_STREAM, 0);
   if (-1 == sockfd) {
     perror("Sock Created");
@@ -50,37 +65,36 @@ int main(int argc, char *argv[]) {
   int b = (int)1e9;
 
   OutputStream *os = new OutputStream();
-  String op = String("sum");
+  String op = String("uppercase");
 
   InputStream *is = new InputStream();
 
   int loop = 100;
   int count = 0;
   for (int i = 0; i < loop; i++) {
-    Float x = (rand() % (b - a)) + a;
-    Float y = (rand() % (b - a)) + a;
-    Float z = x + y;
-    // printf("%f\n",z);
+    String s;
+    randString(s);
     os->reset();
     os->write(op, 0);
-    os->write(x, 1);
-    os->write(y, 2);
+    os->write(s, 1);
     req = os->getByteBuffer();
+
+    transform(s.begin(), s.end(), s.begin(), ::toupper);
 
     write(sockfd, &req[0], req.size());
     read(sockfd, res, sizeof(res));
 
     is->reset();
     is->setBuffer(&res[0], sizeof(res));
-    Float r;
+    String r;
     is->read(r, 1);
-    // printf("%f\n",r);
 
-    bool matched = abs(r - z) < 1e4;
+    bool matched = s == r;
     if (matched) {
       count++;
     }
-    printf("Returned Value: %.4f, Expected Value: %.4f [%d]\n ", r, z, matched);
+    printf("Returned Value: %s, Expected Value: %s [%d]\n ", r.c_str(),
+           s.c_str(), matched);
 
     memset(res, 0, sizeof(res));
   }
